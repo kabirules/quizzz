@@ -12,7 +12,7 @@ public class QuizzDTO {
 
     private String name;
     private String image;
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
     @Id
     private Long id;
 
@@ -22,7 +22,7 @@ public class QuizzDTO {
     @Override
     public String toString() {
         return String.format(
-                "Quizz[id=%d, name='%s', image='%s']",
-                id, name, image);
+                "Quizz[id=%d, name='%s', image='%s', creation_date='%s']",
+                id, name, image, creationDate);
     }
 }

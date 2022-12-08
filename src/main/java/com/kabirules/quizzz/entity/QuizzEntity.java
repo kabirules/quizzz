@@ -21,7 +21,7 @@ public class QuizzEntity {
     @Override
     public String toString() {
         return String.format(
-                "Quizz[id=%d, name='%s', image='%s']",
-                id, name, image);
+                "Quizz[id=%d, name='%s', image='%s', creation_date='%s']",
+                id, name, image, creationDate);
     }
 }
