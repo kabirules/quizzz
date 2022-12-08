@@ -30,8 +30,8 @@ public class QuizzController {
     }
 
     @GetMapping("/quizz")
-    public Flux<QuizzDTO> get() {
-        return quizzService.quizzGet()
+    public Flux<QuizzDTO> getAll() {
+        return quizzService.quizzGetAll()
                 .map(quizzEntity -> quizzMapper.entityToDTO(quizzEntity));
     }
 
