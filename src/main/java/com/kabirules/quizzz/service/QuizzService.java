@@ -33,5 +33,11 @@ public class QuizzService {
         return questionRepository.save(questionEntity);
     }
 
+    public Flux<QuestionEntity> quizzGetByQuizzId(Long quizzId) {
+        return questionRepository.findByQuizzId(quizzId);
+    }
+
+
+
 
 }

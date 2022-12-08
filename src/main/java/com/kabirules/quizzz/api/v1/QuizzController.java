@@ -42,4 +42,10 @@ public class QuizzController {
         return quizzService.questionSave(questionMapper.dTOToEntity(questionDTO))
                 .map(questionEntity -> questionMapper.entityToDTO(questionEntity));
     }
+
+    @GetMapping("/question/{quizzId}")
+    public Flux<QuestionDTO> getByQuizzId(@PathVariable Long quizzId) {
+        return quizzService.quizzGetByQuizzId(quizzId)
+                .map(questionEntity -> questionMapper.entityToDTO(questionEntity));
+    }
 }
