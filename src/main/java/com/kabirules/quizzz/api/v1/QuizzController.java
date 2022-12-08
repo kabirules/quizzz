@@ -2,6 +2,7 @@ package com.kabirules.quizzz.api.v1;
 
 import com.kabirules.quizzz.api.v1.model.QuestionDTO;
 import com.kabirules.quizzz.api.v1.model.QuizzDTO;
+import com.kabirules.quizzz.mapper.QuestionMapper;
 import com.kabirules.quizzz.mapper.QuizzMapper;
 import com.kabirules.quizzz.service.QuizzService;
 import lombok.AllArgsConstructor;
@@ -16,9 +17,10 @@ public class QuizzController {
 
     private QuizzService quizzService;
     private QuizzMapper quizzMapper;
+    private QuestionMapper questionMapper;
 
     @PostMapping("/quizz")
-    public Mono<QuizzDTO> save(@RequestBody QuizzDTO quizzDTO) {
+    public Mono<QuizzDTO> quizzSave(@RequestBody QuizzDTO quizzDTO) {
         return quizzService.quizzSave(quizzMapper.dTOToEntity(quizzDTO))
                 .map(quizzEntity -> quizzMapper.entityToDTO(quizzEntity));
     }
@@ -37,8 +39,7 @@ public class QuizzController {
 
     @PostMapping("/question")
     public Mono<QuestionDTO> save(@RequestBody QuestionDTO questionDTO) {
-        return Mono.empty();
+        return quizzService.questionSave(questionMapper.dTOToEntity(questionDTO))
+                .map(questionEntity -> questionMapper.entityToDTO(questionEntity));
     }
-
-
 }

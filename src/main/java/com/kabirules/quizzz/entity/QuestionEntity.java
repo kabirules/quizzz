@@ -3,8 +3,10 @@ package com.kabirules.quizzz.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
+@Table(name="question")
 @AllArgsConstructor
 public class QuestionEntity {
 
