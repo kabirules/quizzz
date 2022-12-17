@@ -1,3 +1,8 @@
+--drop table if exists category;
+create table category (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50)
+);
 --drop table if exists quizz;
  CREATE TABLE quizz (
     id SERIAL PRIMARY KEY,
